@@ -16,10 +16,11 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Download Nu HTML Validator
+      - name: Download Nu HTML Validator (zip)
         run: |
-          curl -L https://validator.github.io/validator/vnu.jar -o vnu.jar
-          ls -lh vnu.jar
+          curl -L https://github.com/validator/validator/releases/latest/download/vnu.linux.zip -o vnu.zip
+          unzip vnu.zip
+          ls -lh vnu/
 
       - name: Validate HTML
-        run: java -jar vnu.jar --errors-only index.html
+        run: java -jar vnu/vnu.jar --errors-only index.html
