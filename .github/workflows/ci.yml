@@ -18,7 +18,8 @@ jobs:
 
       - name: Download Nu HTML Validator
         run: |
-          curl -L -o vnu.jar https://github.com/validator/validator/releases/download/24.2.29/vnu.jar
+          curl -L https://validator.github.io/validator/vnu.jar -o vnu.jar
+          ls -lh vnu.jar
 
       - name: Validate HTML
         run: java -jar vnu.jar --errors-only index.html
