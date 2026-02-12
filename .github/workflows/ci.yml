@@ -20,7 +20,7 @@ jobs:
         run: |
           curl -L https://github.com/validator/validator/releases/latest/download/vnu.linux.zip -o vnu.zip
           unzip vnu.zip
-          ls -lh vnu/
+          ls -lh vnu-runtime-image/
 
       - name: Validate HTML
-        run: java -jar vnu/vnu.jar --errors-only index.html
+        run: ./vnu-runtime-image/bin/vnu --errors-only index.html
